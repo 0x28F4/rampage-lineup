@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rampage 2026 YouTube Player</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="mockup">
+      <section class="player-card">
+        <div class="track-display">
+          <p id="status">Loading YouTube catalog.</p>
+          <h1><span id="track">song name</span> / <span id="artist">artist</span></h1>
+          <p id="current-lineup-artist">No artist selected</p>
+        </div>
+
+        <div class="video-shell">
+          <div id="yt-player"></div>
+        </div>
+
+        <div class="controls">
+          <button id="prev" disabled>&lt;</button>
+          <button id="play" disabled>Play</button>
+          <button id="next" disabled>Next</button>
+        </div>
+
+        <div class="sliders">
+          <label class="slider-row" for="seek">
+            <span id="elapsed">0:00</span>
+            <input id="seek" type="range" min="0" max="1000" value="0" disabled>
+            <span id="duration">0:00</span>
+          </label>
+          <label class="slider-row" for="volume">
+            <span>Volume</span>
+            <input id="volume" type="range" min="0" max="100" value="45" disabled>
+            <span id="volume-value">9%</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="artist-picker">
+        <div class="search-panel">
+          <label for="filter">Search artists</label>
+          <div class="search-field">
+            <input id="filter" type="search" autocomplete="off" spellcheck="false" placeholder="Type any part of a name">
+            <button id="filter-clear" class="filter-clear" type="button" aria-label="Clear artist search" hidden>Clear</button>
+          </div>
+          <span id="filter-count" class="filter-count" aria-live="polite">0 shown</span>
+        </div>
+        <div id="artists" class="artists"></div>
+      </section>
+
+      <div class="stats" aria-live="polite">
+        <span><strong id="artist-count">0</strong> artists</span>
+        <span><strong id="queue-count">0</strong> played</span>
+        <span><strong id="found-count">0</strong> heard</span>
+      </div>
+    </main>
+
+    <div id="palette" class="palette" hidden>
+      <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Artist search">
+        <input id="palette-input" type="search" autocomplete="off" spellcheck="false" placeholder="Type an artist name">
+        <div id="palette-results" class="palette-results"></div>
+      </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
