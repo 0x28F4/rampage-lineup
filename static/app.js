@@ -43,7 +43,6 @@ const els = {
   paletteResults: document.querySelector("#palette-results"),
   artistCount: document.querySelector("#artist-count"),
   queueCount: document.querySelector("#queue-count"),
-  foundCount: document.querySelector("#found-count"),
 };
 
 window.onYouTubeIframeAPIReady = () => {
@@ -380,7 +379,6 @@ function pickWeightedArtistFrom(pool) {
 
 function updateCounts() {
   els.queueCount.textContent = state.history.length;
-  els.foundCount.textContent = state.matchedArtists.size;
 }
 
 function enablePlaybackControls() {

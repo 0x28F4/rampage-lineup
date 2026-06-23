@@ -495,7 +495,7 @@ input[type="range"] {
   text-transform: uppercase;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   body {
     background:
       radial-gradient(circle at 50% -8rem, rgba(255, 236, 26, 0.16), transparent 18rem),
@@ -522,15 +522,26 @@ input[type="range"] {
   }
 
   .player-panel {
-    border-radius: 12px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     box-shadow: none;
     gap: 12px;
-    padding: 12px;
+    margin-inline: -12px;
+    overflow: visible;
+    padding: 0;
   }
 
   .track-display {
+    border-inline: 0;
+    border-radius: 0;
     min-height: 108px;
     padding: 14px;
+  }
+
+  .video-shell {
+    border-inline: 0;
+    border-radius: 0;
   }
 
   .controls {
@@ -553,6 +564,8 @@ input[type="range"] {
   }
 
   .sliders {
+    border-inline: 0;
+    border-radius: 0;
     padding: 8px 10px;
   }
 
