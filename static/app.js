@@ -19,6 +19,7 @@ const state = {
   durationSeconds: 0,
   positionSeconds: 0,
   progressTimer: 0,
+  advanceTimer: 0,
 };
 
 const els = {
@@ -161,6 +162,15 @@ function handlePlayerReady() {
 }
 
 function handlePlayerStateChange(event) {
+  if (event.data === YT.PlayerState.ENDED) {
+    state.isPlaying = false;
+    els.play.textContent = "Play";
+    state.positionSeconds = state.durationSeconds;
+    updateSeekUI();
+    scheduleNextArtist();
+    return;
+  }
+
   state.isPlaying = event.data === YT.PlayerState.PLAYING;
   els.play.textContent = state.isPlaying ? "Pause" : "Play";
   if (!state.playerReady || !state.player) {
@@ -168,6 +178,17 @@ function handlePlayerStateChange(event) {
   }
   state.durationSeconds = Math.floor(state.player.getDuration() || 0);
   updateSeekUI();
+}
+
+function scheduleNextArtist() {
+  if (state.advanceTimer) {
+    return;
+  }
+  setStatus("Track ended. Loading the next artist.");
+  state.advanceTimer = window.setTimeout(() => {
+    state.advanceTimer = 0;
+    playNextArtist();
+  }, 300);
 }
 
 function handlePlayerError(event) {
@@ -298,6 +319,11 @@ function togglePlay() {
 }
 
 function playArtist(artistName, options = {}) {
+  if (state.advanceTimer) {
+    window.clearTimeout(state.advanceTimer);
+    state.advanceTimer = 0;
+  }
+
   const entry = state.catalog.artists?.[artistName];
   const reference = entry?.reference;
   if (entry?.supported === false) {
