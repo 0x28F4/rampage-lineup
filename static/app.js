@@ -65,6 +65,7 @@ window.onYouTubeIframeAPIReady = () => {
 };
 
 init();
+loadYouTubeIframeApi();
 
 async function init() {
   state.artists = await fetch("artists.json").then((response) => response.json());
@@ -80,6 +81,17 @@ async function init() {
   bindEvents();
   startProgressTimer();
   setStatus("YouTube catalog loaded. Press Play, Next, or choose an artist.");
+}
+
+function loadYouTubeIframeApi() {
+  if (window.YT?.Player) {
+    window.onYouTubeIframeAPIReady();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "https://www.youtube.com/iframe_api";
+  script.async = true;
+  document.head.append(script);
 }
 
 function bindEvents() {

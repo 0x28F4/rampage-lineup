@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="mockup">
-      <section class="player-card">
+    <main class="app-shell">
+      <header class="app-bar">
+        <div>
+          <p class="eyebrow">Rampage 2026</p>
+          <h1>YouTube Player</h1>
+        </div>
+        <div class="stats" aria-live="polite">
+          <span><strong id="artist-count">0</strong> artists</span>
+          <span><strong id="queue-count">0</strong> played</span>
+          <span><strong id="found-count">0</strong> heard</span>
+        </div>
+      </header>
+
+      <section class="player-panel">
         <div class="track-display">
           <p id="status">Loading YouTube catalog.</p>
-          <h1><span id="track">song name</span> / <span id="artist">artist</span></h1>
+          <h2><span id="track">song name</span></h2>
+          <p class="artist-line"><span id="artist">artist</span></p>
           <p id="current-lineup-artist">No artist selected</p>
         </div>
 
@@ -20,9 +33,9 @@
         </div>
 
         <div class="controls">
-          <button id="prev" disabled>&lt;</button>
+          <button id="prev" aria-label="Previous artist" disabled>&lt;</button>
           <button id="play" disabled>Play</button>
-          <button id="next" disabled>Next</button>
+          <button id="next" aria-label="Next artist" disabled>&gt;</button>
         </div>
 
         <div class="sliders">
@@ -50,12 +63,6 @@
         </div>
         <div id="artists" class="artists"></div>
       </section>
-
-      <div class="stats" aria-live="polite">
-        <span><strong id="artist-count">0</strong> artists</span>
-        <span><strong id="queue-count">0</strong> played</span>
-        <span><strong id="found-count">0</strong> heard</span>
-      </div>
     </main>
 
     <div id="palette" class="palette" hidden>
@@ -65,7 +72,6 @@
       </div>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script type="module" src="app.js"></script>
   </body>
 </html>
