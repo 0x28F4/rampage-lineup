@@ -10,7 +10,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SITE_ROOT = ROOT / "static"
+SITE_ROOT = ROOT / "public"
 ARTISTS_FILE = SITE_ROOT / "artists.json"
 CATALOG_FILE = SITE_ROOT / "media_catalog.json"
 PROVIDER = "youtube"
@@ -60,7 +60,7 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="Rebuild entries that already exist.")
     args = parser.parse_args()
 
-    artists = json.loads(ARTISTS_FILE.read_text())
+    artists = read_artists()
     catalog = read_catalog()
     resolved_this_run = 0
 
@@ -102,6 +102,11 @@ def resolve_artist(artist_name: str, results: int) -> dict[str, Any]:
         "reference": best,
         "reason": best["reason"],
     }
+
+
+def read_artists() -> list[str]:
+    data = json.loads(ARTISTS_FILE.read_text())
+    return [artist if isinstance(artist, str) else artist["name"] for artist in data]
 
 
 def youtube_search(artist_name: str, limit: int) -> list[dict[str, Any]]:

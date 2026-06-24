@@ -221,18 +221,18 @@
     },
     "Aries": {
       "artist_name": "Aries",
-      "reason": "artist name in title; artist name in channel; title leads with artist; channel closely matches artist; official/audio marker in title; song-length duration",
+      "reason": "user-provided correction; title references Aries; Born On Road context matches jungle/drum and bass artist",
       "reference": {
         "artist_name": "Aries",
-        "channel": "Aries",
-        "confidence": 0.99,
-        "duration_seconds": 164,
-        "item_id": "JBG55CfTZ9w",
+        "channel": "Clock Factory | BOG Bristol",
+        "confidence": 0.9,
+        "duration_seconds": 0,
+        "item_id": "gcqrg86VVeQ",
         "provider": "youtube",
-        "reason": "artist name in title; artist name in channel; title leads with artist; channel closely matches artist; official/audio marker in title; song-length duration",
-        "title": "Aries - ETA (Audio)",
-        "url": "https://www.youtube.com/watch?v=JBG55CfTZ9w",
-        "view_count": 609899
+        "reason": "user-provided correction; title references Aries; Born On Road context matches jungle/drum and bass artist",
+        "title": "BOG Bristol x Born On Road: Aries",
+        "url": "https://www.youtube.com/watch?v=gcqrg86VVeQ",
+        "view_count": 0
       },
       "resolved": true,
       "supported": true
@@ -2639,21 +2639,10 @@
     },
     "Jewelz Blu": {
       "artist_name": "Jewelz Blu",
-      "reason": "artist name in title; title leads with artist; song-length duration",
-      "reference": {
-        "artist_name": "Jewelz Blu",
-        "channel": "Adult Time",
-        "confidence": 0.68,
-        "duration_seconds": 312,
-        "item_id": "ulK-VS1mLx4",
-        "provider": "youtube",
-        "reason": "artist name in title; title leads with artist; song-length duration",
-        "title": "Jewelz Blu Gets Back At Cheating Boyfriend By Flirting With His Cousin! | ADULT TIME",
-        "url": "https://www.youtube.com/watch?v=ulK-VS1mLx4",
-        "view_count": 34654
-      },
-      "resolved": true,
-      "supported": true
+      "reason": "No credible YouTube song candidate found; artist is not available on YouTube",
+      "reference": null,
+      "resolved": false,
+      "supported": false
     },
     "Joker": {
       "artist_name": "Joker",

@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# Node
+node_modules/
+
 # Local secrets
 .env
